@@ -47,9 +47,14 @@ class StringExtractor {
         }
         if ( $excludes ) {
             foreach( $excludes as $exclude ) {
+			//echo "$path preg_match $exclude".PHP_EOL;
                 if ( preg_match( '|^'.$exclude.'$|', $path ) ) {
                     return false;
                 }
+                else if ( strpos ( $path, $exclude ) !== FALSE ) {
+					// match by partial path (careful)
+					return false;
+				}
             }
         }
         return true;

@@ -69,7 +69,7 @@ class MakePOT {
         return realpath(dirname($path)).DIRECTORY_SEPARATOR.basename($path);
     }
 
-    function xgettext($project, $dir, $output_file, $placeholders = array(), $excludes = array(), $includes = array()) {
+    function xgettext($project, $dir, $output_file, $placeholders = array(), $excludes = array('oc-includes/osclass/gui'), $includes = array()) {
         $meta = array_merge( $this->meta['default'], $this->meta[$project] );
         $placeholders = array_merge( $meta, $placeholders );
         $meta['output'] = $this->realpath_missing( $output_file );
